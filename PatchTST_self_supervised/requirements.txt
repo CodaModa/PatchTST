@@ -3,4 +3,5 @@ matplotlib
 pandas
 scikit-learn
 tqdm
+pynvml
 torch==1.11.0
