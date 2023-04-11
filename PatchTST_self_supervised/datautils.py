@@ -13,13 +13,15 @@ DSETS = ['ettm1', 'ettm2', 'etth1', 'etth2', 'electricity',
          'traffic', 'illness', 'weather', 'exchange'
         ]
 
+dataPath = os.getenv("DATA_PATH") if os.getenv("DATA_PATH") != None else "/data/datasets/public" 
+
 def get_dls(params):
     
     assert params.dset in DSETS, f"Unrecognized dset (`{params.dset}`). Options include: {DSETS}"
     if not hasattr(params,'use_time_features'): params.use_time_features = False
 
     if params.dset == 'ettm1':
-        root_path = '/data/datasets/public/ETDataset/ETT-small/'
+        root_path = dataPath + '/ETDataset/ETT-small/'
         size = [params.context_points, 0, params.target_points]
         dls = DataLoaders(
                 datasetCls=Dataset_ETT_minute,
