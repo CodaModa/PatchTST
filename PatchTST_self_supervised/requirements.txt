@@ -1,0 +1,6 @@
+numpy
+matplotlib
+pandas
+scikit-learn
+tqdm
+torch==1.11.0
